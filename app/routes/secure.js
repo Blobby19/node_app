@@ -12,11 +12,11 @@ module.exports = function(router){
     });
 
     router.get('/profile', function(req, res){
-        res.render('secured/profile', {user: "user"});
+        res.render('secured/profile', {user: req.user});
     });
 
     router.get('/home', function(req, res){
-        res.render('secured/home', {user: "user"});
+        res.render('secured/home', {user: req.user});
     });
 
     router.get('/*', function(req, res){

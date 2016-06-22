@@ -9,17 +9,28 @@ var morgan = require('morgan');
 var passport = require('passport');
 var path = require('path');
 var session = require('express-session');
+var mongoose = require('mongoose');
+var MongoStore = require('connect-mongo')(session);
+
+var database = require('./app/config/database');
 
 var app = express();
+
+mongoose.connect(database.url);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(session({secret: 'hackerFiles',
+app.use(session({
+    secret: 'hackerFiles',
     saveUninitialized: true,
     resave: true,
-    ttl: 2*24*60*60}));
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 2 * 24 * 60 * 60
+    })
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,0 +1,1 @@
+"H:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath="C:\Users\Fedora\Documents\Developpement\node_app\data" --logpath="C:\Users\Fedora\Documents\Developpement\node_app\data\log.txt"
