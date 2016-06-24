@@ -1,0 +1,15 @@
+<h1>Equipes</h1>
+
+<div class="container">
+    <p ng-repeat="team in teams">{{team}}</p>
+    <div>
+        <form>
+            <input type="text" name="name"/>
+            <div class="form-group" ng-repeat="user in users">
+                <input type="checkbox" ng-model="user.select"/>
+                {{user.username}}
+            </div>
+            <button type="submit">Ok</button>
+        </form>
+    </div>
+</div>

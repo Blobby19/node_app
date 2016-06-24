@@ -13,12 +13,20 @@ module.exports = function(router){
         res.redirect('/404');
     });
 
+    router.get('/users', function(req, res){
+        User.find({})
+            .exec(function(err, data){
+                if(err) throw err;
+                else res.json(data);
+            });
+    });
+
     router.get('/projects', function(req, res){
         Project.find({creator: req.user._id})
             .populate('creator', 'username')
-            .exec(function(err, projects){
+            .exec(function(err, data){
             if(err) throw err;
-            else res.json(projects);
+            else res.json(data);
         });
     });
 

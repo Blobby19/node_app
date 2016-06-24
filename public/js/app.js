@@ -14,6 +14,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: '/templates/projects.html',
             controller: 'ProjectController'
         })
+        .when('/equipes', {
+            templateUrl: '/templates/teams.html',
+            controller: 'TeamController'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -35,6 +39,22 @@ app.controller('ProjectController', ['$scope', '$http', function($scope, $http){
     $scope.controller = 'ProjectController';
     $scope.update = function(project){
         $http.post('/api/project', project)
+            .success(function(data){
+                console.log(data);
+            });
+    }
+}]);
+
+app.controller('TeamController', ['$scope', '$http', function($scope, $http){
+    $scope.controller = 'TeamController';
+
+    $http.get('/api/users')
+        .success(function(data){
+            $scope.users = data;
+        });
+
+    $scope.update = function(team){
+        $http.post('/api/team')
             .success(function(data){
                 console.log(data);
             });
