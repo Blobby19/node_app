@@ -5,9 +5,17 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
     username: String,
     password: String,
+    creation_date:{
+        type: Date,
+        default: Date.now
+    },
+    projects:{
+        type: Schema.Types.ObjectId,
+        ref: 'Project'
+    },
     token:{
         type: Schema.Types.ObjectId,
         ref: 'Token',
@@ -15,7 +23,7 @@ var userSchema = new mongoose.Schema({
     }
 });
 
-var tokenSchema = mongoose.Schema({
+var tokenSchema = Schema({
     value: String,
     user:{
         type:Schema.Types.ObjectId,

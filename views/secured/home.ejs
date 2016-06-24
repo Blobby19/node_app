@@ -5,7 +5,12 @@
   <title>Home</title>
 </head>
 <body>
-<%= user.username %>
+<%= user.id %>
 <a href="/auth/logout">Logout</a>
+
+<form action="/api/project" method="post">
+  <input type="text" name="name"/>
+  <button type="submit">Envoyer</button>
+</form>
 </body>
 </html>
