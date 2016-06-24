@@ -1,1 +1,2 @@
-"H:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath="C:\Users\Fedora\Documents\Developpement\node_app\data" --logpath="C:\Users\Fedora\Documents\Developpement\node_app\data\log.txt"
+"c:\Program Files\MongoDB\Server\3.2\bin\"mongod.exe --dbpath "c:\Users\Luc\WebstormProjects\node_app\data" --logpath="c:\Users\Luc\WebstormProjects\node_app\data\log.txt"
+:: REM "H:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath="C:\Users\Fedora\Documents\Developpement\node_app\data" --logpath="C:\Users\Fedora\Documents\Developpement\node_app\data\log.txt"
