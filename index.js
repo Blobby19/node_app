@@ -44,6 +44,10 @@ var public_router = express.Router();
 require('./app/routes/public')(public_router);
 app.use('/public', public_router);
 
+var api_router = express.Router();
+require('./app/routes/api')(api_router);
+app.use('/api', api_router);
+
 var auth_router = express.Router();
 require('./app/routes/auth')(auth_router, passport);
 app.use('/auth', auth_router);

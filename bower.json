@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular": "angularjs#^1.5.7",
+    "angular-route": "^1.5.7"
   }
 }
