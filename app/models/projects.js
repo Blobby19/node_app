@@ -11,6 +11,10 @@ var projectSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    users:[{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     creation_date:{
         type: Date,
         default: Date.now

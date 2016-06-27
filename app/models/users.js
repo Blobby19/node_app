@@ -12,10 +12,10 @@ var userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    projects:{
+    projects:[{
         type: Schema.Types.ObjectId,
         ref: 'Project'
-    },
+    }],
     token:{
         type: Schema.Types.ObjectId,
         ref: 'Token',
