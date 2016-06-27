@@ -3,6 +3,6 @@
 <div class="container">
     <h2>Mes projets</h2>
     <p ng-repeat="project in projects">
-        {{project}}
+        <a href="/api/project/{{project._id}}">{{project.name}}</a>
     </p>
 </div>

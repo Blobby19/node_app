@@ -16,7 +16,7 @@ module.exports = function(router){
     });
 
     router.get('/home', function(req, res){
-        res.render('secured/home', {user: req.user});
+        res.render('secured/home', {user: req.user, session: req.session});
     });
 
     router.get('/*', function(req, res){

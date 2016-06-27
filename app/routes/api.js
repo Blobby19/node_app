@@ -10,7 +10,7 @@ module.exports = function(router){
         if(req.isAuthenticated()){
             return next();
         }
-        res.redirect('/404');
+        res.redirect('/auth');
     });
 
     router.get('/users', function(req, res){
@@ -28,6 +28,25 @@ module.exports = function(router){
             if(err) throw err;
             else res.json(data);
         });
+    });
+
+    router.get('/session', function(req, res){
+        console.log(req.session);
+       res.json(req.session);
+    });
+
+    router.get('/project/:id', function(req, res){
+        console.log(req.params);
+        Project.findOne({_id: req.params.id})
+            .exec(function(err, data){
+                if(err) throw err;
+                else{
+                    req.session.project = data;
+                    req.session.save();
+                    console.log(req.session)
+                }
+            });
+       res.redirect('/');
     });
 
     router.post('/project', function(req, res){
