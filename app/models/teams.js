@@ -4,16 +4,15 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-var projectSchema = new Schema({
+var teamModel = new Schema({
     name: String,
-    creator:{
+    users:[{
+        type:Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    createdBy:{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    team:{
-        type: Schema.Types.ObjectId,
-        ref: 'Team'
     },
     createdAt:{
         type: Date,
@@ -21,4 +20,4 @@ var projectSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('Team', teamModel);

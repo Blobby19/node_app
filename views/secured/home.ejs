@@ -3,14 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
 </head>
-<body>
-<%= user.id %>
-<a href="/auth/logout">Logout</a>
-
-<form action="/api/project" method="post">
-  <input type="text" name="name"/>
-  <button type="submit">Envoyer</button>
-</form>
+<body ng-app="node_app">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle collapsed">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#/" class="navbar-brand">Node_App</a>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="#/projets">Mes projets</a></li>
+					<li><a href="#/equipes">Mes équipes</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<%= user.username %>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#params">Paramètres du compte</a></li>
+							<li class="divider" role="separator"></li>
+							<li><a href="/auth/logout">Se déconnecter...</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container" ng-view>
+	</div>
+	<script src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/vendor/angular/angular.min.js"></script>
+	<script src="/vendor/angular-route/angular-route.min.js"></script>
+	<script src="/js/app.js"></script>
 </body>
 </html>
